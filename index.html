@@ -101,15 +101,13 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
         <script>
-            function ask() {
-		        var name = prompt("What is your name?");
-		        localStorage.setItem("user", name);
+            if(localStorage.user) {
 		        $(".welcome").text("Welcome " + localStorage.user + "!");
-		    }
-		    
-		    if(localStorage.user) {
-		        $(".welcome").text("Welcome " + localStorage.user + "!");
-		    }
+		    } else {
+                var name = prompt("What is your name?");
+                localStorage.setItem("user", name);
+                $(".welcome").text("Welcome " + localStorage.user + "!");
+            }
         </script>
     </body>
 </html>
